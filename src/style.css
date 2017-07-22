@@ -19,13 +19,14 @@ h1 {
 
 main {
   height:calc(100% - 60px);
+  display:flex;
 }
 
 #settings {
-  float:left;
-  width:30%;
   height:100%;
   background:yellow;
+  flex-basis:0;
+  flex-grow:1;
 }
 
 #settings h2 {
@@ -33,39 +34,35 @@ main {
   font-weight:500;
   margin:0;
   text-align:center;
-  margin:10px;
 }
 
 #columns {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
+  text-align:center;
 }
 
-#left {
-  background:red;
-}
-
-#right {
-  background:green;
+.column {
+  display:inline-flex;
 }
 
 .setting {
-  margin:auto;
-  display:table;
-  padding:10px;
+  max-width:100px;
+  width:100px;
+  margin-top:10px;
 }
 .setting h3 {
   margin:0;
   font-family:'Roboto', sans-serif;
   font-weight:500;
+  text-align:left;
 }
 .setting input {
-  width:94%;
+  width:100%;
+  border:0;
 }
 
 #canvas {
-  float:right;
-  width:70%;
   height:100%;
+  background:green;
+  flex-basis:0;
+  flex-grow:4;
 }
