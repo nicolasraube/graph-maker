@@ -1,11 +1,13 @@
 body {
   margin:0;
+  height:100vh;
 }
 
 header {
   text-align:center;
   background:#4CAF50;
-  padding:10px;
+  height:60px;
+  line-height:60px;
 }
 
 h1 {
@@ -13,4 +15,20 @@ h1 {
   font-weight:500;
   margin:0;
   color:#212121;
+}
+
+main {
+  height:calc(100% - 60px);
+}
+
+#settings {
+  float:left;
+  width:30%;
+  height:100%;
+}
+
+#canvas {
+  float:left;
+  width:70%;
+  height:100%;
 }
