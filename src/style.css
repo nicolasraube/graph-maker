@@ -25,6 +25,43 @@ main {
   float:left;
   width:30%;
   height:100%;
+  background:yellow;
+}
+
+#settings h2 {
+  font-family:'Roboto', sans-serif;
+  font-weight:500;
+  margin:0;
+  text-align:center;
+  margin:10px;
+}
+
+#columns {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+#left {
+  background:red;
+}
+
+#right {
+  background:green;
+}
+
+.setting {
+  margin:auto;
+  display:table;
+  padding:10px;
+}
+.setting h3 {
+  margin:0;
+  font-family:'Roboto', sans-serif;
+  font-weight:500;
+}
+.setting input {
+  width:94%;
 }
 
 #canvas {
