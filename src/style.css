@@ -22,14 +22,12 @@ main {
 }
 
 #settings {
-  background:yellow;
   float:left;
   width:30%;
   height:100%;
 }
 
 #canvas {
-  background:green;
   float:right;
   width:70%;
   height:100%;
