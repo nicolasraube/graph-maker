@@ -46,6 +46,7 @@ class Canvas {
 
 	calculateVisualSize(width, height) {
 		let maxWidth = this.getWrapperWidth();
+		console.log(maxWidth);
 		let maxHeight = this.getWrapperHeight();
 
 		let widthFactor = maxWidth / width;
@@ -106,4 +107,6 @@ let height = settings.getHeight();
 canvas.setResolution(width, height);
 canvas.calculateVisualSize(width, height);
 
-//console.log(wrapper.getBoundingClientRect().height);
+window.addEventListener('resize', function() {
+	canvas.calculateVisualSize(width, height);
+});

@@ -67,6 +67,7 @@ main {
   flex-basis:0;
   flex-grow:4;
   background:lightgreen;
+  min-width:0;
 }
 
 #canvas {
