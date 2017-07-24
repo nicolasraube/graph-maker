@@ -1,5 +1,4 @@
 var vertexAmount = 100;
-var vertexSize = 5;
 
 class Settings {
 	constructor(canvas) {
@@ -23,6 +22,14 @@ class Settings {
 			self.canvas.setSize(self.canvas.canvas.width, val);
 			self.canvas.generateGraph();
 		});
+
+		this.inputVertexSize = document.getElementById('input-vertex-size');
+		this.canvas.vertexSize = this.inputVertexSize.value;
+		this.inputVertexSize.addEventListener('input', function(e) {
+			let val = e.target.value;
+			self.canvas.vertexSize = val;
+			self.canvas.generateGraph();
+		});
 	}
 
 	getWidth() {
@@ -40,16 +47,16 @@ class Vertex {
 
 		this.x = this.getRandomX();
 		this.y = this.getRandomY();
-		this.radius = vertexSize;
+		this.radius = this.canvas.vertexSize;
 		this.color = '#000';
 	}
 
 	getRandomX() {
-		return Math.floor(Math.random() * this.canvas.width + 1);
+		return Math.floor(Math.random() * this.canvas.canvas.width + 1);
 	}
 
 	getRandomY() {
-		return Math.floor(Math.random() * this.canvas.height + 1);
+		return Math.floor(Math.random() * this.canvas.canvas.height + 1);
 	}
 
 	draw(context) {
@@ -157,7 +164,7 @@ class Canvas {
 		this.vertices = [];
 
 		for (let i = 0; i < vertexAmount; i++) {
-			this.vertices.push(new Vertex(this.canvas));
+			this.vertices.push(new Vertex(this));
 		}
 
 		this.draw(this.context);
