@@ -1,10 +1,18 @@
 class Settings {
-	constructor() {
+	constructor(canvas) {
+		this.canvas = canvas;
 		this.initElements();
 	}
 
 	initElements() {
+		let self = this;
+
 		this.inputWidth = document.getElementById('input-width');
+		this.inputWidth.addEventListener('input', function(e) {
+			let val = e.target.value;
+			self.canvas.setSize(val, self.canvas.canvas.height);
+		});
+
 		this.inputHeight = document.getElementById('input-height');
 	}
 
@@ -31,6 +39,11 @@ class Canvas {
 		this.wrapper = document.getElementById('canvas-wrapper');
 	}
 
+	setSize(width, height) {
+		this.setResolution(width, height);
+		this.calculateVisualSize(width, height);
+	}
+
 	setResolution(width, height) {
 		this.setResWidth(width);
 		this.setResHeight(height);
@@ -46,7 +59,6 @@ class Canvas {
 
 	calculateVisualSize(width, height) {
 		let maxWidth = this.getWrapperWidth();
-		console.log(maxWidth);
 		let maxHeight = this.getWrapperHeight();
 
 		let widthFactor = maxWidth / width;
@@ -99,14 +111,13 @@ class Canvas {
 	}
 }
 
-let settings = new Settings();
 let canvas = new Canvas();
+let settings = new Settings(canvas);
 
 let width = settings.getWidth();
 let height = settings.getHeight();
-canvas.setResolution(width, height);
-canvas.calculateVisualSize(width, height);
+canvas.setSize(width, height);
 
 window.addEventListener('resize', function() {
-	canvas.calculateVisualSize(width, height);
+	canvas.calculateVisualSize(canvas.canvas.width, canvas.canvas.height);
 });
