@@ -18,7 +18,7 @@ class Settings {
 }
 
 class Canvas {
-	constructor() {
+  constructor() {
 		this.canvas = document.getElementById('canvas');
 		//defaults
 		this.canvas.width = 300;
@@ -42,6 +42,10 @@ class Canvas {
 		this.canvas.height = height;
 	}
 
+	calculateVisualSize(width, height) {
+		this.setVisualSize(width, height);
+	}
+
 	setVisualSize(width, height) {
 		this.setVisualWidth(width);
 		this.setVisualHeight(height);
@@ -58,5 +62,10 @@ class Canvas {
 
 let settings = new Settings();
 let canvas = new Canvas();
-canvas.setResolution(settings.getWidth(), settings.getHeight());
-canvas.setVisualSize(settings.getWidth(), settings.getHeight());
+
+let width = settings.getWidth();
+let height = settings.getHeight();
+canvas.setResolution(width, height);
+canvas.calculateVisualSize(width, height);
+
+//console.log(wrapper.getBoundingClientRect().height);
