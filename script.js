@@ -14,6 +14,10 @@ class Settings {
 		});
 
 		this.inputHeight = document.getElementById('input-height');
+		this.inputHeight.addEventListener('input', function(e) {
+			let val = e.target.value;
+			self.canvas.setSize(self.canvas.canvas.width, val);
+		});
 	}
 
 	getWidth() {
