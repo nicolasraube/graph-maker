@@ -18,7 +18,7 @@ class Settings {
 }
 
 class Canvas {
-  constructor() {
+	constructor() {
 		this.canvas = document.getElementById('canvas');
 		//defaults
 		this.canvas.width = 300;
@@ -48,28 +48,25 @@ class Canvas {
 		let maxWidth = this.getWrapperWidth();
 		let maxHeight = this.getWrapperHeight();
 
-		if (width === maxWidth) {
-			let factor = maxHeight / height;
-			height = maxHeight;
-			width = width * factor;
-		} else if (height === maxHeight) {
-			let factor = maxWidth / width;
-			width = maxWidth;
-			height = height * factor;
-		} else	if (maxWidth >= maxHeight) {
-			let factor = maxWidth / width;
-			width = maxWidth;
-			height = height * factor;
+		let widthFactor = maxWidth / width;
+		let heightFactor = maxHeight / height;
 
+		if (width === maxWidth) {
+			height = maxHeight;
+			width *= heightFactor;
+		} else if (height === maxHeight) {
+			width = maxWidth;
+			height *= widthFactor;
+		} else if (maxWidth >= maxHeight) {
+			width = maxWidth;
+			height *= widthFactor;
 			if (height > maxHeight) {
 				this.calculateVisualSize(width, height);
 				return;
 			}
 		} else {
-			let factor = maxHeight / height;
 			height = maxHeight;
-			width = width * factor;
-
+			width *= heightFactor;
 			if (width > maxWidth) {
 				this.calculateVisualSize(width, height);
 				return;
