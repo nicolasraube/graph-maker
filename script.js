@@ -14,12 +14,14 @@ class Settings {
 		this.inputWidth.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.setSize(val, self.canvas.canvas.height);
+			self.canvas.generateGraph();
 		});
 
 		this.inputHeight = document.getElementById('input-height');
 		this.inputHeight.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.setSize(self.canvas.canvas.width, val);
+			self.canvas.generateGraph();
 		});
 	}
 
@@ -65,10 +67,10 @@ class Canvas {
 	constructor() {
 		this.canvas = document.getElementById('canvas');
 		//defaults
-		this.canvas.width = 300;
-		this.canvas.height = 300;
-		this.canvas.style.width = 300 + 'px';
-		this.canvas.style.height = 300 + 'px';
+		this.canvas.width = 1000;
+		this.canvas.height = 1000;
+		this.canvas.style.width = 1000 + 'px';
+		this.canvas.style.height = 1000 + 'px';
 
 		this.context = this.canvas.getContext('2d');
 
@@ -150,6 +152,10 @@ class Canvas {
 	}
 
 	generateGraph() {
+		this.clear();
+
+		this.vertices = [];
+
 		for (let i = 0; i < vertexAmount; i++) {
 			this.vertices.push(new Vertex(this.canvas));
 		}
