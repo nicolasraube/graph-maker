@@ -27,6 +27,7 @@ main {
   background:yellow;
   flex-basis:0;
   flex-grow:1;
+  overflow-y:auto;
 }
 
 #settings h2 {
