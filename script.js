@@ -1,3 +1,6 @@
+var vertexAmount = 100;
+var vertexSize = 5;
+
 class Settings {
 	constructor(canvas) {
 		this.canvas = canvas;
@@ -29,6 +32,35 @@ class Settings {
 	}
 }
 
+class Vertex {
+	constructor(canvas) {
+		this.canvas = canvas;
+
+		this.x = this.getRandomX();
+		this.y = this.getRandomY();
+		this.radius = vertexSize;
+		this.color = '#000';
+	}
+
+	getRandomX() {
+		return Math.floor(Math.random() * this.canvas.width + 1);
+	}
+
+	getRandomY() {
+		return Math.floor(Math.random() * this.canvas.height + 1);
+	}
+
+	draw(context) {
+		context.beginPath();
+		context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+		context.fill();
+	}
+}
+
+class Edge {
+
+}
+
 class Canvas {
 	constructor() {
 		this.canvas = document.getElementById('canvas');
@@ -41,6 +73,9 @@ class Canvas {
 		this.context = this.canvas.getContext('2d');
 
 		this.wrapper = document.getElementById('canvas-wrapper');
+
+		this.vertices = [];
+		this.edges = [];
 	}
 
 	setSize(width, height) {
@@ -113,6 +148,25 @@ class Canvas {
 	setVisualHeight(height) {
 		this.canvas.style.height = height + 'px';
 	}
+
+	generateGraph() {
+		for (let i = 0; i < vertexAmount; i++) {
+			this.vertices.push(new Vertex(this.canvas));
+		}
+
+		this.draw(this.context);
+	}
+
+	draw(context) {
+		for (let i = 0; i < this.vertices.length; i++) {
+			let vertex = this.vertices[i];
+			vertex.draw(context);
+		}
+	}
+
+	clear() {
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	}
 }
 
 let canvas = new Canvas();
@@ -121,6 +175,8 @@ let settings = new Settings(canvas);
 let width = settings.getWidth();
 let height = settings.getHeight();
 canvas.setSize(width, height);
+
+canvas.generateGraph();
 
 window.addEventListener('resize', function() {
 	canvas.calculateVisualSize(canvas.canvas.width, canvas.canvas.height);
