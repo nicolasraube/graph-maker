@@ -1,5 +1,3 @@
-var vertexAmount = 100;
-
 class Settings {
 	constructor(canvas) {
 		this.canvas = canvas;
@@ -28,6 +26,14 @@ class Settings {
 		this.inputVertexSize.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.vertexSize = val;
+			self.canvas.generateGraph();
+		});
+
+		this.inputVertexAmount = document.getElementById('input-vertex-amount');
+		this.canvas.vertexAmount = this.inputVertexAmount.value;
+		this.inputVertexAmount.addEventListener('input', function(e) {
+			let val = e.target.value;
+			self.canvas.vertexAmount = val;
 			self.canvas.generateGraph();
 		});
 	}
@@ -163,7 +169,7 @@ class Canvas {
 
 		this.vertices = [];
 
-		for (let i = 0; i < vertexAmount; i++) {
+		for (let i = 0; i < this.vertexAmount; i++) {
 			this.vertices.push(new Vertex(this));
 		}
 
