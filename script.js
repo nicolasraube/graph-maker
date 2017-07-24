@@ -20,6 +20,12 @@ class Settings {
 class Canvas {
   constructor() {
     this.canvas = document.getElementById('canvas');
+    //defaults
+    this.canvas.width = 300;
+    this.canvas.height = 300;
+    this.canvas.style.width = 300 + 'px';
+    this.canvas.style.height = 300 + 'px';
+
     this.context = this.canvas.getContext('2d');
   }
 
@@ -50,7 +56,7 @@ class Canvas {
   }
 }
 
-let canvas = new Canvas();
 let settings = new Settings();
+let canvas = new Canvas();
 canvas.setResolution(settings.getWidth(), settings.getHeight());
 canvas.setVisualSize(settings.getWidth(), settings.getHeight());
