@@ -39,6 +39,24 @@ main {
   overflow-y:auto;
 }
 
+#buttons {
+  text-align:center;
+  margin-top:30px;
+  padding-bottom:30px;
+  border-bottom:1px solid #9e9e9e;
+}
+
+button {
+  font-size:1em;
+  font-family:'Roboto', sans-serif;
+  background:white;
+  padding:5px;
+}
+
+button:active {
+  box-shadow:inset 0 -2px 2px grey;
+}
+
 #settings h2 {
   font-family:'Roboto', sans-serif;
   font-weight:500;
@@ -78,7 +96,6 @@ main {
 }
 .setting input {
   width:100%;
-  border:0;
 }
 
 #canvas-wrapper {
