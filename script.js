@@ -31,34 +31,34 @@ class Settings {
 			self.canvas.generateGraph();
 		});
 
-		this.inputVertexSize = document.getElementById('input-vertex-size');
-		this.canvas.vertexSize = this.inputVertexSize.value;
-		this.inputVertexSize.addEventListener('input', function(e) {
+		let inputVertexSize = document.getElementById('input-vertex-size');
+		this.canvas.vertexSize = inputVertexSize.value;
+		inputVertexSize.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.vertexSize = val;
 			self.canvas.generateGraph();
 		});
 
-		this.inputVertexAmount = document.getElementById('input-vertex-amount');
-		this.canvas.vertexAmount = this.inputVertexAmount.value;
-		this.inputVertexAmount.addEventListener('input', function(e) {
+		let inputVertexAmount = document.getElementById('input-vertex-amount');
+		this.canvas.vertexAmount = inputVertexAmount.value;
+		inputVertexAmount.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.vertexAmount = val;
 			self.canvas.generateGraph();
 		});
 
-		this.inputVertexNeighborRadius = document.
+		let inputVertexNeighborRadius = document.
 			getElementById('input-vertex-neighbor-radius');
-		this.canvas.vertexNeighborRadius = this.inputVertexNeighborRadius.value;
-		this.inputVertexNeighborRadius.addEventListener('input', function(e) {
+		this.canvas.vertexNeighborRadius = inputVertexNeighborRadius.value;
+		inputVertexNeighborRadius.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.vertexNeighborRadius = val;
 			self.canvas.generateGraph();
 		});
 
-		this.inputEdgeWidth = document.getElementById('input-edge-width');
-		this.canvas.edgeWidth = this.inputEdgeWidth.value;
-		this.inputEdgeWidth.addEventListener('input', function(e) {
+		let inputEdgeWidth = document.getElementById('input-edge-width');
+		this.canvas.edgeWidth = inputEdgeWidth.value;
+		inputEdgeWidth.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.edgeWidth = val;
 			self.canvas.generateGraph();
@@ -67,26 +67,26 @@ class Settings {
 
 		/* right settings column */
 
-		this.inputBackgroundColor = document.
+		let inputBackgroundColor = document.
 			getElementById('input-background-color');
-		this.canvas.backgroundColor = this.inputBackgroundColor.value;
-		this.inputBackgroundColor.addEventListener('change', function(e) {
+		this.canvas.backgroundColor = inputBackgroundColor.value;
+		inputBackgroundColor.addEventListener('change', function(e) {
 			let val = e.target.value;
 			self.canvas.backgroundColor = val;
 			self.canvas.generateGraph();
 		});
 
-		this.inputVertexColor = document.getElementById('input-vertex-color');
-		this.canvas.vertexColor = this.inputVertexColor.value;
-		this.inputVertexColor.addEventListener('change', function(e) {
+		let inputVertexColor = document.getElementById('input-vertex-color');
+		this.canvas.vertexColor = inputVertexColor.value;
+		inputVertexColor.addEventListener('change', function(e) {
 			let val = e.target.value;
 			self.canvas.vertexColor = val;
 			self.canvas.generateGraph();
 		});
 
-		this.inputEdgeColor = document.getElementById('input-edge-color');
-		this.canvas.edgeColor = this.inputEdgeColor.value;
-		this.inputEdgeColor.addEventListener('change', function(e) {
+		let inputEdgeColor = document.getElementById('input-edge-color');
+		this.canvas.edgeColor = inputEdgeColor.value;
+		inputEdgeColor.addEventListener('change', function(e) {
 			let val = e.target.value;
 			self.canvas.edgeColor = val;
 			self.canvas.generateGraph();
