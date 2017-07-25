@@ -22,12 +22,18 @@ main {
   display:flex;
 }
 
-@media screen and (max-width:580px) {
+@media screen and (max-width:650px) {
   main {
     flex-direction:column-reverse;
   }
   #canvas-wrapper {
     max-height:50%;
+  }
+  .column:first-child {
+    margin-right:50px;
+  }
+  .column:last-child {
+    margin-left:50px;
   }
 }
 
@@ -51,6 +57,7 @@ button {
   font-family:'Roboto', sans-serif;
   background:white;
   padding:5px;
+  margin:5px;
 }
 
 button:active {
@@ -67,11 +74,21 @@ button:active {
 
 #columns {
   text-align:center;
+  padding-bottom:30px;
 }
 
 .column {
   display:inline-flex;
   flex-direction:column;
+}
+
+@media screen and (min-width:1140px) {
+  .column:first-child {
+    margin-right:5px;
+  }
+  .column:last-child {
+    margin-left:5px;
+  }
 }
 
 @media screen and (min-width:1300px) {
