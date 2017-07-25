@@ -7,6 +7,8 @@ class Settings {
 	initElements() {
 		let self = this;
 
+		/* left settings column */
+
 		this.inputWidth = document.getElementById('input-width');
 		this.inputWidth.addEventListener('input', function(e) {
 			let val = e.target.value;
@@ -51,6 +53,18 @@ class Settings {
 		this.inputEdgeWidth.addEventListener('input', function(e) {
 			let val = e.target.value;
 			self.canvas.edgeWidth = val;
+			self.canvas.generateGraph();
+		});
+
+
+		/* right settings column */
+
+		this.inputBackgroundColor = document.
+			getElementById('input-background-color');
+		this.canvas.backgroundColor = this.inputBackgroundColor.value;
+		this.inputBackgroundColor.addEventListener('change', function(e) {
+			let val = e.target.value;
+			self.canvas.backgroundColor = val;
 			self.canvas.generateGraph();
 		});
 	}
@@ -262,6 +276,9 @@ class Canvas {
 	}
 
 	draw(context) {
+		context.fillStyle = this.backgroundColor;
+		context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
 		for (let i = 0; i < this.edges.length; i++) {
 			let edge = this.edges[i];
 			edge.draw(context);
