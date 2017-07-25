@@ -14,6 +14,12 @@ class Settings {
 			self.canvas.generateGraph();
 		});
 
+		let btnDownload = document.getElementById('btn-download');
+		btnDownload.addEventListener('click', function(e) {
+			let img = self.canvas.canvas.toDataURL('image/jpeg');
+			let win = window.open(img, '_blank');
+			win.focus();
+		});
 
 		/* left settings column */
 
