@@ -63,6 +63,8 @@ button {
   background:white;
   padding:5px;
   margin:5px;
+  border-top-left-radius:5px;
+  border-bottom-right-radius:5px;
 }
 
 button:active {
@@ -118,6 +120,13 @@ button:active {
 }
 .setting input {
   width:100%;
+  border:1px solid #F4B350;
+  padding:3px;
+  font-size:1em;
+  border-radius:2px;
+}
+input[type="color"] {
+  border-color:rgba(0, 0, 0, .2);
 }
 
 #canvas-wrapper {
