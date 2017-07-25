@@ -36,6 +36,23 @@ class Settings {
 			self.canvas.vertexAmount = val;
 			self.canvas.generateGraph();
 		});
+
+		this.inputVertexNeighborRadius = document.
+			getElementById('input-vertex-neighbor-radius');
+		this.canvas.vertexNeighborRadius = this.inputVertexNeighborRadius.value;
+		this.inputVertexNeighborRadius.addEventListener('input', function(e) {
+			let val = e.target.value;
+			self.canvas.vertexNeighborRadius = val;
+			self.canvas.generateGraph();
+		});
+
+		this.inputEdgeWidth = document.getElementById('input-edge-width');
+		this.canvas.edgeWidth = this.inputEdgeWidth.value;
+		this.inputEdgeWidth.addEventListener('input', function(e) {
+			let val = e.target.value;
+			self.canvas.edgeWidth = val;
+			self.canvas.generateGraph();
+		});
 	}
 
 	getWidth() {
@@ -54,6 +71,7 @@ class Vertex {
 		this.x = this.getRandomX();
 		this.y = this.getRandomY();
 		this.radius = this.canvas.vertexSize;
+		this.neighborRadius = this.canvas.vertexNeighborRadius;
 		this.color = '#000';
 	}
 
@@ -68,12 +86,68 @@ class Vertex {
 	draw(context) {
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+		context.fillStyle = this.color;
 		context.fill();
+	}
+
+	getNeighbors(vertices) {
+		let neighbors = [];
+		for (let i = 0; i < vertices.length; i++) {
+			let vertex = vertices[i];
+			if (this.isNeighbor(vertex) && !this.isConnectedTo(vertex)) {
+				neighbors.push(vertex);
+			}
+		}
+		return neighbors;
+	}
+
+	isNeighbor(vertex) {
+		if (Math.sqrt(Math.abs(this.x - vertex.x) + Math.abs(this.y - vertex.y))
+				<= this.neighborRadius) {
+			return true;
+		}
+
+		return false;
+	}
+
+	isConnectedTo(vertex) {
+		for (let i = 0; i < this.canvas.edges.length; i++) {
+			let edge = this.canvas.edges[i];
+			if (edge.getOtherVertex(this) === vertex) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }
 
 class Edge {
+	constructor(vertex1, vertex2, canvas) {
+		this.x1 = vertex1.x;
+		this.y1 = vertex1.y;
+		this.x2 = vertex2.x;
+		this.y2 = vertex2.y;
+		this.color = '#000';
+		this.width = canvas.edgeWidth;
+	}
 
+	draw(context) {
+		context.beginPath();
+		context.moveTo(this.x1, this.y1);
+		context.lineTo(this.x2, this.y2);
+		context.strokeStyle = this.color;
+		context.lineWidth = this.width;
+		context.stroke();
+	}
+
+	getOtherVertex(vertex) {
+		if (vertex === this.vertex1) {
+			return this.vertex2;
+		} else if (vertex === this.vertex2) {
+			return this.vertex1;
+		}
+	}
 }
 
 class Canvas {
@@ -173,10 +247,25 @@ class Canvas {
 			this.vertices.push(new Vertex(this));
 		}
 
+		this.edges = [];
+
+		for (let i = 0; i < this.vertices.length; i++) {
+			let vertex = this.vertices[i];
+			let neighbors = vertex.getNeighbors(this.vertices);
+			for (let j = 0; j < neighbors.length; j++) {
+				let neighbor = neighbors[j];
+				this.edges.push(new Edge(vertex, neighbor, this));
+			}
+		}
+
 		this.draw(this.context);
 	}
 
 	draw(context) {
+		for (let i = 0; i < this.edges.length; i++) {
+			let edge = this.edges[i];
+			edge.draw(context);
+		}
 		for (let i = 0; i < this.vertices.length; i++) {
 			let vertex = this.vertices[i];
 			vertex.draw(context);
