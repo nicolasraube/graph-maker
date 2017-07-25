@@ -67,6 +67,22 @@ class Settings {
 			self.canvas.backgroundColor = val;
 			self.canvas.generateGraph();
 		});
+
+		this.inputVertexColor = document.getElementById('input-vertex-color');
+		this.canvas.vertexColor = this.inputVertexColor.value;
+		this.inputVertexColor.addEventListener('change', function(e) {
+			let val = e.target.value;
+			self.canvas.vertexColor = val;
+			self.canvas.generateGraph();
+		});
+
+		this.inputEdgeColor = document.getElementById('input-edge-color');
+		this.canvas.edgeColor = this.inputEdgeColor.value;
+		this.inputEdgeColor.addEventListener('change', function(e) {
+			let val = e.target.value;
+			self.canvas.edgeColor = val;
+			self.canvas.generateGraph();
+		});
 	}
 
 	getWidth() {
@@ -86,7 +102,7 @@ class Vertex {
 		this.y = this.getRandomY();
 		this.radius = this.canvas.vertexSize;
 		this.neighborRadius = this.canvas.vertexNeighborRadius;
-		this.color = '#000';
+		this.color = this.canvas.vertexColor;
 	}
 
 	getRandomX() {
@@ -142,7 +158,7 @@ class Edge {
 		this.y1 = vertex1.y;
 		this.x2 = vertex2.x;
 		this.y2 = vertex2.y;
-		this.color = '#000';
+		this.color = canvas.edgeColor;
 		this.width = canvas.edgeWidth;
 	}
 
