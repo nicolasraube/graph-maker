@@ -7,6 +7,14 @@ class Settings {
 	initElements() {
 		let self = this;
 
+		/* buttons */
+
+		let btnRegenerate = document.getElementById('btn-regenerate');
+		btnRegenerate.addEventListener('click', function(e) {
+			self.canvas.generateGraph();
+		});
+
+
 		/* left settings column */
 
 		this.inputWidth = document.getElementById('input-width');
