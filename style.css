@@ -5,16 +5,16 @@ body {
 
 header {
   text-align:center;
-  background:#4CAF50;
   height:60px;
   line-height:60px;
+  background:#26A65B;
 }
 
 h1 {
   font-family:'Roboto', sans-serif;
   font-weight:500;
   margin:0;
-  color:#212121;
+  color:#fff;
 }
 
 main {
@@ -39,10 +39,10 @@ main {
 
 #settings {
   height:100%;
-  background:yellow;
   flex-basis:0;
   flex-grow:1;
   overflow-y:auto;
+  background:#ECECEC;
 }
 
 #buttons {
@@ -118,7 +118,6 @@ button:active {
 #canvas-wrapper {
   flex-basis:0;
   flex-grow:4;
-  background:lightgreen;
   min-width:0;
 }
 
