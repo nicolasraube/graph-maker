@@ -106,11 +106,11 @@ class Vertex {
 	}
 
 	getRandomX() {
-		return Math.floor(Math.random() * this.canvas.canvas.width + 1);
+		return Math.floor(Math.random() * (this.canvas.canvas.width-this.canvas.vertexSize) + this.canvas.vertexSize);
 	}
 
 	getRandomY() {
-		return Math.floor(Math.random() * this.canvas.canvas.height + 1);
+		return Math.floor(Math.random() * (this.canvas.canvas.height-this.canvas.vertexSize) + this.canvas.vertexSize);
 	}
 
 	draw(context) {
