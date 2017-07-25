@@ -56,6 +56,15 @@ main {
   flex-direction:column;
 }
 
+@media screen and (min-width:1300px) {
+  .column:first-child {
+    margin-right:20px;
+  }
+  .column:last-child {
+    margin-left:20px;
+  }
+}
+
 .setting {
   max-width:100px;
   width:100px;
