@@ -4,10 +4,11 @@ body {
 }
 
 header {
-  text-align:center;
   height:60px;
-  line-height:60px;
   background:#26A65B;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 h1 {
@@ -15,6 +16,14 @@ h1 {
   font-weight:500;
   margin:0;
   color:#fff;
+}
+header a {
+  font-family:'Roboto', sans-serif;
+  font-size:1.1em;
+  color:#F4B350;
+  text-decoration:underline;
+  text-decoration-color:#F4B350;
+  text-decoration-skip:ink;
 }
 
 h2, h3 {
