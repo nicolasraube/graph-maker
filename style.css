@@ -17,6 +17,10 @@ h1 {
   color:#fff;
 }
 
+h2, h3 {
+  color:#333;
+}
+
 main {
   height:calc(100% - 60px);
   display:flex;
@@ -47,9 +51,10 @@ main {
 
 #buttons {
   text-align:center;
-  margin-top:30px;
-  padding-bottom:30px;
-  border-bottom:1px solid #9e9e9e;
+  padding-top:15px;
+  padding-bottom:15px;
+  background:#2ECC71;
+  box-shadow:inset 0 2px 5px rgba(0, 0, 0, .5);
 }
 
 button {
