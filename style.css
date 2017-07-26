@@ -5,7 +5,7 @@ body {
 
 header {
   height:80px;
-  background:#26A65B;
+  background:#282830;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -64,7 +64,7 @@ main {
   text-align:center;
   padding-top:15px;
   padding-bottom:15px;
-  background:#2ECC71;
+  background:#60646D;
   box-shadow:inset 0 2px 5px rgba(0, 0, 0, .5);
 }
 
