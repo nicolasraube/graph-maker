@@ -7,9 +7,20 @@ header {
   height:80px;
   background:#282830;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   align-items:center;
   justify-content:center;
+}
+
+header img {
+  width:55px;
+  margin-right:20px;
+}
+
+#text {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 h1 {
