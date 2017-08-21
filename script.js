@@ -16,9 +16,7 @@ class Settings {
 
 		let btnDownload = document.getElementById('btn-download');
 		btnDownload.addEventListener('click', function(e) {
-			let img = self.canvas.canvas.toDataURL('image/jpeg');
-			let win = window.open(img, '_blank');
-			win.focus();
+			alert("Please right click on the image and select \"Save image as...\"");
 		});
 
 		/* left settings column */
