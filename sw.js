@@ -4,6 +4,8 @@ let filesToCache = [
     '/graph-maker/index.html',
     '/graph-maker/app/img/favicon.png',
     '/graph-maker/app/img/logo-200x200.png',
+    '/graph-maker/app/img/logo-192x192.png',
+    '/graph-maker/app/img/logo-512x512.png',
     '/graph-maker/app/script.js',
     '/graph-maker/app/style.css'
 ];
