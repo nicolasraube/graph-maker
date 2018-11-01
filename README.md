@@ -1,6 +1,6 @@
 # Graph Maker
-## [graph-maker.glitch.me](https://graph-maker.glitch.me)
-![Screenshot](https://github.com/nicolasraube/graph-maker/blob/master/screenshot.png)
+## [Live Version](https://nicolasraube.github.io/graph-maker/)
+![Screenshot](https://github.com/nicolasraube/graph-maker/blob/gh-pages/app/img/screenshot.png)
 ## Settings
 You can tweak the generated graph with the following settings:
 ### Width / Height

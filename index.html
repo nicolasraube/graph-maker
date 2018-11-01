@@ -5,18 +5,21 @@
     <title>Graph Maker</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="theme-color" content="#FDE3A7">
+    
+    <link rel="manifest" href="/graph-maker/manifest.json"/>
 
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.png' />
+    <link rel='shortcut icon' type='image/x-icon' href='/graph-maker/app/img/favicon.png' />
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/graph-maker/app/style.css">
   </head>
 
   <body>
 
     <header>
-      <img src="logo.png" alt="logo">
+      <img src="/graph-maker/app/img/logo-200x200.png" alt="logo">
       <div id="text">
         <h1>Graph Maker</h1>
         <a href="http://www.nicolasraube.com">by Nicolas Raube</a>
@@ -96,7 +99,18 @@
 
     </main>
 
-    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/graph-maker/sw.js')
+        .then(() => {
+          console.log("registered service worker");
+        })
+        .catch(error => {
+          console.log("failed registering service worker");
+        });
+      }
+    </script>
+    <script src="/graph-maker/app/script.js"></script>
 
   </body>
 </html>
