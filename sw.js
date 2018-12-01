@@ -7,7 +7,9 @@ let filesToCache = [
     '/graph-maker/app/img/logo-192x192.png',
     '/graph-maker/app/img/logo-512x512.png',
     '/graph-maker/app/script.js',
-    '/graph-maker/app/style.css'
+    '/graph-maker/app/style.css',
+    '/graph-maker/materialize.min.css',
+    '/graph-maker/materialize.min.js'
 ];
 
 self.addEventListener('install', (event) => {

@@ -5,14 +5,14 @@
     <title>Graph Maker</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="theme-color" content="#FDE3A7">
+    <meta name="theme-color" content="#fff3e0">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Graph Maker">
 
     <meta name="msapplication-TileImage" content="/graph-maker/app/img/logo-192x192.png">
-    <meta name="msapplication-TileColor" content="#FDE3A7">
+    <meta name="msapplication-TileColor" content="#fff3e0">
     
     <link rel="manifest" href="/graph-maker/manifest.json"/>
 
@@ -22,6 +22,10 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="/graph-maker/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="/graph-maker/app/style.css">
   </head>
 
@@ -44,10 +48,10 @@
 
     <main>
 
-      <div id="settings">
+      <div class="orange lighten-5" id="settings">
         <div id="buttons">
-          <button id="btn-regenerate">Regenerate</button>
-          <button id="btn-download">Download</button>
+          <button class="waves-effect waves-light btn blue" id="btn-regenerate">Regenerate</button>
+          <button class="waves-effect waves-light btn blue" id="btn-download">Download</button>
         </div>
 
         <h2>Settings</h2>
@@ -119,6 +123,8 @@
         });
       }
     </script>
+
+    <script src="/graph-maker/materialize.min.js"></script>
     <script src="/graph-maker/app/script.js"></script>
 
   </body>
