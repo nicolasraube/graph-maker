@@ -8,8 +8,8 @@ let filesToCache = [
     '/graph-maker/app/img/logo-512x512.png',
     '/graph-maker/app/script.js',
     '/graph-maker/app/style.css',
-    '/graph-maker/materialize.min.css',
-    '/graph-maker/materialize.min.js'
+    '/graph-maker/app/lib/materialize.min.css',
+    '/graph-maker/app/lib/materialize.min.js'
 ];
 
 self.addEventListener('install', (event) => {
@@ -25,6 +25,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request, {ignoreSearch: true})
         .then((response) => {
+            console.log("response: " + response);
             return response || fetch(event.request);
         })
     );
